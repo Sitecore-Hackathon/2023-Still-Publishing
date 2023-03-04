@@ -18,6 +18,7 @@ export function generateConfig(configOverrides?: { [key: string]: string }): voi
     sitecoreApiKey: 'no-api-key-set',
     sitecoreApiHost: '',
     jssAppName: 'Unknown',
+    rootItemId: '',
   };
 
   // require + combine config sources
@@ -72,6 +73,7 @@ function transformScJssConfig() {
   return {
     sitecoreApiKey: config.sitecore.apiKey,
     sitecoreApiHost: config.sitecore.layoutServiceHost,
+    rootItemId: config.sitecore.rootItemId,
   };
 }
 
@@ -81,6 +83,6 @@ function transformPackageConfig() {
   return {
     jssAppName: packageConfig.config.appName,
     graphQLEndpointPath: packageConfig.config.graphQLEndpointPath,
-    defaultLanguage: packageConfig.config.language || 'en',
+    defaultLanguage: packageConfig.config.language || 'en',    
   };
 }
